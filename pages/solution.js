@@ -1,33 +1,37 @@
-import styles from "../styles/Home.module.css";
-import Router from "next/router";
-
-const handleClickIndex = () => Router.push({ pathname: "/" });
-export default function About() {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1>Solution</h1>
-        <a onClick={() => handleClickIndex()}>Home</a>
-        <div className={styles.container}>
-          <div className={styles.grid}>
-            <a className={styles.card}>
-              <h2>img001</h2>
-            </a>
-            <a className={styles.card}>
-              {" "}
-              <h2>img002</h2>
-            </a>
-            <a className={styles.card}>
-              {" "}
-              <h2>img003</h2>
-            </a>
-            <a className={styles.card}>
-              {" "}
-              <h2>img004</h2>
-            </a>
-          </div>
+import React, { Component } from "react";
+import axios from "axios";
+import styles from '../styles/Home.module.css'
+class About extends Component {
+  state = {
+    persons: [],
+  };
+  componentDidMount() {
+    axios.get("/api/customers").then((res) => {
+      const persons = res.data;
+      this.setState({ persons });
+    });
+  }
+  render() {
+    return (
+      <div className="App">
+        <div className={styles.grid}>
+        {this.state.persons.map((person) => {
+            return (
+              <div key={person.id} className={styles.card}>
+                <h3>{person.id}</h3>
+                <p>{person.firstname}</p>
+                <p>{person.lastname}</p>
+                <button>
+                  Add to Cart
+                </button>
+              </div>
+            );
+          })}
+         
         </div>
-      </main>
-    </div>
-  );
+      </div>
+    );
+  }
 }
+
+export default About;

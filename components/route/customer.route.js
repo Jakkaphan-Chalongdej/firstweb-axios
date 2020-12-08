@@ -2,10 +2,13 @@ module.exports = function (server) {
   const customers = require("../controller/customer.controller.js");
 
   // Create a new Customer
-  server.post("/api/customers", customers.create);
-
+  server.post("/api/customers", function (req, res) {
+    customers.create();
+  });
   // Retrieve all Customer
-  server.get("/api/customers", customers.findAll);
+  server.get("/api/customers", function (req, res) {
+    customers.findAll;
+  });
 
   // Retrieve a single Customer by Id
   server.get("/api/customers/:customerId", customers.findById);

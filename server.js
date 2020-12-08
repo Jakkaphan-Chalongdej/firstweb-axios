@@ -7,10 +7,10 @@ const handle = app.getRequestHandler();
 const server = express();
 const db = require("./components/config/db.config.js");
 //force: true will drop the table if it already exists
-db.sequelize.sync({ force: false }).then(() => {
-  console.log("Drop and Resync with { force: true }");
-});
-
+// db.sequelize.sync({ force: false }).then(() => {
+//   console.log("Drop and Resync with { force: true }");
+// });
+db.sequelize.sync();
 app.prepare().then(() => {
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: true }));

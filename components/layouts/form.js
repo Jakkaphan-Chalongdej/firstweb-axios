@@ -1,66 +1,63 @@
-import { useState } from 'react'
-import Router from 'next/router'
+import React, { Component } from "react";
+import axios from "axios";
 
+export default class AddVisitorForm extends Component {
+  constructor(props) {
+    super(props);
 
-
-export default function Form() {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [submitting, setSubmitting] = useState(false)
-
-  async function submitHandler(e) {
-    setSubmitting(true)
-    e.preventDefault()
-    try {
-      const res = await fetch('/api/create-entry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title,
-          content,
-        }),
-      })
-      setSubmitting(false)
-      const json = await res.json()
-      if (!res.ok) throw Error(json.message)
-      Router.push('/')
-    } catch (e) {
-      throw Error(e.message)
-    }
+    this.state = {
+      firstname: "",
+      lastname: "",
+    };
   }
 
-  return (
-    <form onSubmit={submitHandler}>
-      <div className="my-4">
-        <label htmlFor="title">
-          <h3 className="font-bold">Title</h3>
-        </label>
-        <input
-          id="title"
-          className="shadow border rounded w-full"
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    axios
+      .post("/api/customers", this.state)
+      .then((response) => {
+        console.log(response);
+        console.log("Successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  render() {
+    const { firstname, lastname } = this.state;
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            First Name:
+            <input
+              type="text"
+              name="firstname"
+              onChange={this.onChange}
+              value={firstname}
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              name="lastname"
+              onChange={this.onChange}
+              value={lastname}
+            />
+          </label>
+
+          <button type="submit">Add Guest</button>
+        </form>
       </div>
-      <div className="my-4">
-        <label htmlFor="content">
-          <h3 className="font-bold">Content</h3>
-        </label>
-        <textarea
-          className="shadow border resize-none focus:shadow-outline w-full h-48"
-          id="content"
-          name="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-      <button disabled={submitting} type="submit">
-        {submitting ? 'Creating ...' : 'Create'}
-      </button>
-    </form>
-  )
+    );
+  }
 }

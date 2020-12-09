@@ -14,9 +14,7 @@ db.sequelize.sync();
 app.prepare().then(() => {
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: true }));
-
   require("./components/route/customer.route.js")(server);
-
   server.get("*", (req, res) => {
     return handle(req, res);
   });

@@ -21,34 +21,37 @@ export default function Header() {
       <Head>
         <title>AST</title>
       </Head>
-      <Navbar sticky="top" bg="light" variant="light">
-        <Nav className="container flex nav-fill flex-wrap flex-sm-row mr-auto">
-          <Navbar.Brand>
-            <a onClick={() => handleClickIndex()}>
-              <img src="/logo-title.png" alt="AST" width="50" height="40" />
-            </a>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        sticky="top"
+        bg="light"
+        variant="light"
+      >
+        <Navbar.Brand>
+          <a onClick={() => handleClickIndex()}>
+            <img src="/logo-title.png" alt="AST" width="50" height="40" />
+          </a>
+        </Navbar.Brand>
 
-          <Navbar className="nav-right text-uppercase ">
-            <Navbar.Collapse id="responsive-navbar-nav">
-              {routes.map((route) => (
-                <li key={route.label}>
-                  <Link href={route.href}>
-                    <a
-                      className={`px-3 js-scroll-trigger${(router.pathname = route.href
-                        ? "text-500"
-                        : "")}`}
-                    >
-                      {route.label}
-                    </a>
-                  </Link>
-                </li>
-              ))}
-            </Navbar.Collapse>
-          </Navbar>
-        </Nav>
-        
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ml-auto text-uppercase ">
+            {routes.map((route) => (
+              <li key={route.label}>
+                <Nav.Link href={route.href}>
+                  <a
+                    className={`px-3 js-scroll-trigger${(router.pathname = route.href
+                      ? "text-500"
+                      : "")}`}
+                  >
+                    {route.label}
+                  </a>
+                </Nav.Link>
+              </li>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
     </>
   );

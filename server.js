@@ -14,18 +14,8 @@ db.sequelize.sync();
 app.prepare().then(() => {
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: true }));
-  server.get("/solution", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
-  });
+
   require("./components/route/customer.route.js")(server);
-  /* server.get("/users", (req, res) => {
-      let sql = "SELECT * FROM users"; 
-      let query = db.query(sql, (err, results) => {
-        if (err) throw err; 
-        console.log(results); 
-        res.json(results); 
-      });
-    });*/
 
   server.get("*", (req, res) => {
     return handle(req, res);

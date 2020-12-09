@@ -3,7 +3,7 @@ import Footer from "../components/layouts/Footer";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap";
-
+import "../styles/style.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>

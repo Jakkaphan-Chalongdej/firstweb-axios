@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styles from '../styles/Home.module.css'
-class About extends Component {
+import styles from '../styles/Homes.module.css'
+class Solution extends Component {
   state = {
     persons: [],
   };
@@ -13,8 +13,8 @@ class About extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className={styles.grid}>
+      <div className={(styles.app, styles.full)}>
+      <div className={styles.hs}>
         {this.state.persons.map((person) => {
             return (
               <div key={person.id} className={styles.card}>
@@ -34,4 +34,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Solution;

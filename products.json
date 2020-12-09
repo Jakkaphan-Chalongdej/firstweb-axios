@@ -1,0 +1,45 @@
+[
+  {
+    "image": "/images/01.jpg",
+    "title": "Snipcart Logo Sticker",
+    "id": "sticker_logo",
+    "description": "Show off your Snipcart support with a logo sticker!",
+    "price": "2.00"
+  },
+  {
+    "image": "/images/02.jpg",
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "sticker_logo_pack",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "price": "4.00"
+  },
+  {
+    "image": "/images/03.jpg",
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "sticker_logo_pack",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "price": "4.00"
+  },
+  {
+    "image": "/images/04.jpg",
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "sticker_logo_pack",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "price": "4.00"
+  },
+  {
+    "image": "/images/05.jpg",
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "sticker_logo_pack",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "price": "4.00"
+  },
+  {
+    "image": "/images/06.jpg",
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "sticker_logo_pack",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "price": "4.00"
+  }
+]
+  

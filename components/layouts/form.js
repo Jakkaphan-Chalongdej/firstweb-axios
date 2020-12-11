@@ -8,6 +8,7 @@ export default class AddVisitorForm extends Component {
     this.state = {
       firstname: "",
       lastname: "",
+      age:"",
     };
   }
 
@@ -32,7 +33,7 @@ export default class AddVisitorForm extends Component {
   };
 
   render() {
-    const { firstname, lastname } = this.state;
+    const { firstname, lastname,age } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -54,7 +55,15 @@ export default class AddVisitorForm extends Component {
               value={lastname}
             />
           </label>
-
+          <label>
+            Age:
+            <input
+              type="text"
+              name="age"
+              onChange={this.onChange}
+              value={age}
+            />
+          </label>
           <button type="submit">Add Guest</button>
         </form>
       </div>

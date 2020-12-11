@@ -1,16 +1,25 @@
 import styles from "../styles/Home.module.css";
-
+import Head from "next/head";
+import styless from "../styles/Homes.module.css";
 export default function About() {
   return (
     <div>
       <div className={styles.container}>
+        <Head>
+          <link rel="preconnect" href="https://app.snipcart.com" />
+          <link rel="preconnect" href="https://cdn.snipcart.com" />
+          <link
+            rel="stylesheet"
+            href="https://cdn.snipcart.com/themes/v3.0.21/default/snipcart.css"
+          />
+        </Head>
         <main className={styles.main}>
           <div className="box">
             <div className="product__img">
               <img
+                name="cat"
                 src="https://pet-az.com/images/site/Pet%20Celebrity%20'Chompos'/13.stop-a-cat-from-clawing-furniture2.png"
                 alt="cat"
-               
               />
               {/* <img src="/images/01.jpg"/> */}
             </div>
@@ -35,12 +44,30 @@ export default function About() {
             </div>
             <div className="product_buttons snipcart-add-item">
               <button className="btn price">$ 300</button>
-              <button className="btn buy snipcart-add-item" data-item-url="/">
+              <button
+                className="btn buy snipcart-add-item"
+                data-item-id="1"
+                data-item-image="cat"
+                data-item-name="cats"
+                data-item-url="/"
+                data-item-price="300"
+              >
                 buy
               </button>
             </div>
           </div>
         </main>
+        <footer className={styless.footer}>
+          <script
+            async
+            src="https://cdn.snipcart.com/themes/v3.0.21/default/snipcart.js"
+          />
+          <div
+            hidden
+            id="snipcart"
+            data-api-key="M2U5NTZiNmMtNzAyMS00NjcyLTlkODUtMDBiMjg2ODEyMzAxNjM3NDI5MjYzODc2MDkyOTA0"
+          />
+        </footer>
       </div>
     </div>
   );

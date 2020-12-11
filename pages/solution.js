@@ -32,12 +32,12 @@ class Solution extends Component {
                   <h3>{person.id}</h3>
                   <p>{person.firstname}</p>
                   <p>{person.lastname}</p>
-                  <p>{person.age}</p>
+                  <p>${person.age}</p>
                   <button
                     className="snipcart-add-item"
                     data-item-id={person.id}
-                    data-item-image={person.image}
-                    data-item-name={person.title}
+                    data-item-image={person.lastname}
+                    data-item-name={person.firstname}
                     data-item-url="/"
                     data-item-price={person.age}
                   >

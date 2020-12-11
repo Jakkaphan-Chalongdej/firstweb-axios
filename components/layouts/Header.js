@@ -1,11 +1,8 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Nav, Navbar } from "react-bootstrap";
-import Router from "next/router";
-import Head from "next/head";
+import { FaWeightHanging } from "react-icons/fa";
+import Image from "next/image";
 
-const handleClickIndex = () => Router.push({ pathname: "/" });
-const routes = [
+const pathnames = [
   // { href: "/", label: "Home" },
   { href: "/", label: "Technology" },
   { href: "/#about", label: "Design" },
@@ -14,13 +11,8 @@ const routes = [
   { href: "/#contact", label: "Contact" },
 ];
 export default function Header() {
-  const router = useRouter();
-
   return (
     <>
-      <Head>
-        <title>AST</title>
-      </Head>
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -29,27 +21,31 @@ export default function Header() {
         variant="light"
       >
         <Navbar.Brand>
-          <a onClick={() => handleClickIndex()}>
-            <img src="/logo-title.png" alt="AST" width="50" height="40" />
-          </a>
+          <Image src="/logo-title.png" alt="AST" width="50" height="40" />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto text-uppercase ">
-            {routes.map((route) => (
-              <li key={route.label}>
-                <Nav.Link href={route.href}>
-                  <a
-                    className={`px-3 js-scroll-trigger${(router.pathname = route.href
-                      ? "text-500"
-                      : "")}`}
-                  >
-                    {route.label}
+            {pathnames.map((pathname) => (
+              <li key={pathname.label}>
+                <Nav.Link href={pathname.href}>
+                  <a className={` ${pathname.href ? "" : ""}`}>
+                    {pathname.label}
                   </a>
                 </Nav.Link>
               </li>
             ))}
+          </Nav>
+          <Nav className={"px-2"}>
+            <a
+              className="snipcart-checkout snipcart-summary"
+              href="/#"
+              style={{ textDecoration: "none" }}
+            >
+              <FaWeightHanging />
+              <span className="snipcart-total-price">$0.00</span>
+            </a>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

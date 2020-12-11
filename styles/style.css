@@ -1,25 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
-.container {
+
+.box {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f6f6f6;
-  position: linear;
-}
-.container .box {
-  width: 0%;
   height: 620px;
   background: #fff;
   position: absolute;
   animation: openBox 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
-.container .box .product__img {
+.box .product__img {
   width: 600px;
   position: absolute;
   left: -150px;
@@ -28,48 +16,9 @@
   animation: fadeImg 1s ease-in-out forwards;
   animation-delay: 1s;
 }
-.container .box .product__video {
-  width: 320px;
-  height: 100px;
-  position: absolute;
-  left: 50px;
-  bottom: 50px;
-}
-.container .box .product__video .video {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0px;
-  opacity: 0;
-  animation: upVideo 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
-  animation-delay: 1.2s;
-}
-.container .box .product__video .video i {
-  width: 70px;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  color: #f71568;
-  border: 2px solid #f71568;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  transition: ease-in-out 220ms;
-  cursor: pointer;
-}
-.container .box .product__video .video i:hover {
-  background: #f71568;
-  color: #fff;
-  box-shadow: 0 0 26px #f71568;
-}
-.container .box .product__video .video p {
-  margin-left: 25px;
-  font-family: "Poppins";
-}
-.container .box .product__disc {
-  width: 0px;
+
+.box .product__disc {
+
   height: 430px;
   background: #ffca1b;
   display: flex;
@@ -80,7 +29,7 @@
   top: 50px;
   animation: showDisc 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
-.container .box .product__disc .product__disc--content {
+.box .product__disc .product__disc--content {
   width: 80%;
   height: 80%;
   display: flex;
@@ -90,24 +39,14 @@
   animation-delay: 1s;
   opacity: 0;
 }
-.container .box .product__disc .product__disc--content .disc__content--about {
+.box .product__disc .product__disc--content .disc__content--about {
   width: 100%;
 }
-.container
-  .box
-  .product__disc
-  .product__disc--content
-  .disc__content--about
-  h1 {
+.box .product__disc .product__disc--content .disc__content--about h1 {
   font-size: 32px;
   font-family: "Poppins";
 }
-.container
-  .box
-  .product__disc
-  .product__disc--content
-  .disc__content--about
-  span {
+.box .product__disc .product__disc--content .disc__content--about span {
   font-family: "Lato";
   font-size: 14px;
   letter-spacing: 2px;
@@ -115,20 +54,19 @@
   display: flex;
   opacity: 0.5;
 }
-.container .box .product__disc .product__disc--content .disc__content--about p {
+.box .product__disc .product__disc--content .disc__content--about p {
   margin-top: 35px;
   font-size: 14px;
   font-family: "Poppins";
 }
-.container .box .product__disc .product__disc--content .product__view--more {
+.box .product__disc .product__disc--content .product__view--more {
   width: 100%;
   display: flex;
   align-items: center;
   position: relative;
   cursor: pointer;
 }
-.container
-  .box
+.box
   .product__disc
   .product__disc--content
   .product__view--more:hover
@@ -136,8 +74,7 @@
   width: 220px;
   height: 35px;
 }
-.container
-  .box
+.box
   .product__disc
   .product__disc--content
   .product__view--more
@@ -149,7 +86,7 @@
   z-index: 1;
   transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
 }
-.container .box .product__disc .product__disc--content .product__view--more p {
+.box .product__disc .product__disc--content .product__view--more p {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -158,14 +95,14 @@
   margin-left: 15px;
   font-family: "Poppins";
 }
-.container .box .product_buttons {
+.box .product_buttons {
   width: 500px;
   height: 100px;
   bottom: 50px;
   right: -50px;
   position: absolute;
 }
-.container .box .product_buttons .btn {
+.box .product_buttons .btn {
   width: 240px;
   height: 70%;
   font-size: 16px;
@@ -178,7 +115,7 @@
   transition: ease-in-out 220ms;
   cursor: pointer;
 }
-.container .box .product_buttons .price {
+.box .product_buttons .price {
   border: 2px solid #f71568;
   background: transparent;
   color: #f71568;
@@ -189,12 +126,12 @@
   animation: fadeWish 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
   animation-delay: 1s;
 }
-.container .box .product_buttons .price:hover {
+.box .product_buttons .price:hover {
   background: #f71568;
   color: #fff;
   box-shadow: 0 0 26px #f71568;
 }
-.container .box .product_buttons .buy {
+.box .product_buttons .buy {
   border: none;
   background: #f71568;
   color: #fff;
@@ -205,7 +142,7 @@
   animation: fadeBuy 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
   animation-delay: 1s;
 }
-.container .box .product_buttons .buy:hover {
+.box .product_buttons .buy:hover {
   box-shadow: 0 0 26px #f71568;
 }
 
@@ -230,16 +167,7 @@
     opacity: 1;
   }
 }
-@keyframes upVideo {
-  0% {
-    opacity: 0;
-    bottom: -20px;
-  }
-  100% {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
+
 @keyframes showDisc {
   0% {
     width: 0px;
